@@ -41,7 +41,8 @@ func main() {
 	app := App{}
 	tasks, id := CreateInitialTasks()
 	app.Initialise(tasks, id)
-	app.Run("localhost:10000")
+	//app.Run("localhost:8490")
+	log.Fatal(http.ListenAndServe(":8080", app.Router))
 }
 
 func (app *App) Run(address string) {
